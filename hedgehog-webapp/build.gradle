@@ -14,8 +14,8 @@ plugins {
 
 // configure gradle-node-plugin
 node {
-  version = '6.4.0'
-  npmVersion = '3.10.6'
+  version = '6.10.1'
+  npmVersion = '4.4.1'
   download = true
   workDir = file("${project.projectDir}/node")
   nodeModulesDir = file("${project.projectDir}/")
