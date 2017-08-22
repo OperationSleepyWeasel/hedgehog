@@ -6,3 +6,7 @@ before_install:
 
 after_success:
   - codecov
+  - ./gradlew sonarqube \
+                -Dsonar.organization=sleepy-weasel \
+                -Dsonar.host.url=https://sonarcloud.io \
+                -Dsonar.login=$SONAR_LOGIN
