@@ -21,6 +21,7 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'jacoco'
 
 idea {
     module {
@@ -46,7 +47,12 @@ dependencies {
           'junit:junit:4.12',
           'org.codehaus.groovy:groovy-all:2.4.4',
           'org.spockframework:spock-core:1.0-groovy-2.4',
-          'org.spockframework:spock-spring:1.0-groovy-2.4'
+          'org.spockframework:spock-spring:1.0-groovy-2.4',
+
+          // optional dependencies for using Spock
+          "org.hamcrest:hamcrest-core:1.3", // only necessary if Hamcrest matchers are used
+          "net.bytebuddy:byte-buddy:1.6.5", // allows mocking of classes (in addition to interfaces)
+          "org.objenesis:objenesis:2.5.1", // allows mocking of classes without default constructor (together with CGLIB)
   )
 }
 
@@ -59,3 +65,11 @@ jar {
 
 //frontend:build will be run before the processResources
 processResources.dependsOn(':hedgehog-webapp:build')
+
+jacocoTestReport {
+  reports {
+    xml.enabled true
+  }
+}
+
+check.dependsOn jacocoTestReport
