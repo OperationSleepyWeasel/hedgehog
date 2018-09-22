@@ -1,0 +1,17 @@
+<mat-table #table [dataSource]="dataSource" >
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Tradycja</mat-header-cell>
+    <mat-cell *matCellDef="let currentTradition">{{currentTradition.name}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef>Opis</mat-header-cell>
+    <mat-cell *matCellDef="let currentTradition">{{currentTradition.description}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+</mat-table>
