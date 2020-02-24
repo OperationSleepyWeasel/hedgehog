@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Tradition } from './model/tradition.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
@@ -29,4 +29,6 @@ export class TraditionsComponent implements OnInit {
       .subscribe((payload: Tradition[]) => this.traditions = payload);
   }
 
+  redirectToDetails(tradition: Tradition) {
+  }
 }

@@ -1,3 +1,6 @@
 <mat-card>
-  <hh-list [traditions]="traditions"></hh-list>
+  <hh-list
+    [traditions]="traditions"
+    (selectedTradition)="redirectToDetails($event)"
+  ></hh-list>
 </mat-card>
